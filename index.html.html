@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wellora - Your Personal Health &amp; Wellness App</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.w{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#475569;font-size:17px;line-height:1.6;background:#fff;overflow-x:hidden}
+.w a{color:inherit;text-decoration:none}
+.c{max-width:1200px;margin:0 auto;padding:0 24px}
+.s{padding:112px 0}
+.w h1,.w h2,.w h3,.w p{margin:0}
+.w h1,.w h2,.w h3{color:#0B1F18;letter-spacing:-.02em}
+.w h1{font-size:clamp(40px,6vw,68px);line-height:1.06;font-weight:800}
+.w h2{font-size:clamp(30px,4vw,46px);line-height:1.12;font-weight:800}
+.w h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.lead{font-size:19px;max-width:560px}
+.eb{display:inline-block;padding:4px 14px;border-radius:999px;background:#D1FAE5;color:#065F46;font-weight:700;font-size:14px;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 28px;border-radius:999px;background:#059669;color:#fff!important;font-weight:700;font-size:19px;box-shadow:0 8px 22px rgba(16,185,129,.3);transition:all .25s}
+.btn:hover{background:#047857;transform:translateY(-2px)}
+.btn2{background:#fff;color:#047857!important;border:1px solid #10B981;box-shadow:none}
+.btn2:hover{background:#ECFDF5}
+.sm{min-height:44px;padding:0 22px;font-size:19px}
+.card{background:#fff;border:1px solid #E2EEE8;border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(16,185,129,.10);transition:all .25s}
+.card:hover{box-shadow:0 14px 38px rgba(16,185,129,.2);transform:translateY(-2px)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.ic{width:48px;height:48px;border-radius:50%;background:#D1FAE5;display:grid;place-items:center;margin-bottom:16px}
+.ic svg,.mi{width:24px;height:24px;stroke:#047857;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hero{background:radial-gradient(ellipse at top,#D1FAE5 0%,#ECFDF5 40%,#FFFFFF 75%);padding:72px 0 96px}
+.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:16px}
+.nl{display:flex;gap:32px;font-weight:500}
+.nl a:hover{color:#047857}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 12px}
+.ph{width:260px;height:520px;border-radius:38px;border:8px solid #0B1F18;background:#fff;box-shadow:0 30px 60px rgba(16,185,129,.22);padding:22px 16px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:12px;flex:none}
+.ph .t{font-weight:700;color:#0B1F18;font-size:15px;align-self:flex-start}
+.row{align-self:stretch;border:1px solid #E2EEE8;border-radius:14px;padding:10px 14px;font-size:14px;color:#0B1F18;display:flex;justify-content:space-between}
+.tilt{transform:rotate(-4deg);margin:0 auto}
+.num{width:44px;height:44px;border-radius:50%;background:#059669;color:#fff;font-weight:800;display:grid;place-items:center;margin-bottom:16px}
+.tag{padding:10px 20px;border-radius:999px;border:1px solid #E2EEE8;background:#fff;font-weight:700;color:#0B1F18}
+.tw{overflow-x:auto;border:1px solid #E2EEE8;border-radius:20px;box-shadow:0 10px 30px rgba(16,185,129,.10)}
+.w table{border-collapse:collapse;width:100%;min-width:640px}
+.w th,.w td{padding:18px 24px;text-align:left;border-bottom:1px solid #E2EEE8}
+.w th{color:#0B1F18}
+.w td.y{color:#065F46;font-weight:700;background:#ECFDF5}
+.w th.y{background:#D1FAE5}
+.pr{display:flex;flex-direction:column;gap:12px}
+.pr ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.pr li{display:flex;gap:10px;align-items:flex-start;font-size:16px}
+.pr li svg{width:20px;height:20px;flex:none;margin-top:3px;stroke:#047857;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.hot{border:2px solid #10B981}
+.pp{font-size:40px;font-weight:800;color:#0B1F18;letter-spacing:-.02em}
+details{border:1px solid #E2EEE8;border-radius:16px;padding:20px 24px;background:#fff;margin-bottom:12px}
+summary{font-weight:700;color:#0B1F18;cursor:pointer;min-height:24px}
+details p{margin-top:10px}
+.bg{background:linear-gradient(180deg,#fff 0%,#ECFDF5 50%,#fff 100%)}
+.ft{border-top:1px solid #E2EEE8;padding:64px 0 32px;font-size:16px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:32px}
+.fg a{display:block;padding:4px 0}
+.fg a:hover{color:#047857}
+.fg b{color:#0B1F18;display:block;margin-bottom:8px}
+@media (max-width:760px){.nl{display:none}.s{padding:72px 0}}
+</style>
+</helmet>
+<div class="w">
+<header class="c"><div class="nav">
+<a href="#" style="font-weight:800;font-size:24px;color:#0B1F18;letter-spacing:-.02em">Wellora</a>
+<nav class="nl"><a href="#features">Features</a><a href="#how">How It Works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+<a class="btn sm" href="#download">Download App</a>
+</div></header>
+
+<section class="hero"><div class="c hg">
+<div>
+<h1>Feel better, every day.</h1>
+<p class="lead" style="margin-top:20px">Wellora brings your sleep, movement, nutrition, and mindfulness into one calm, beautifully simple app, personalized to you.</p>
+<div class="cta"><a class="btn" href="#download">Download on the App Store</a><a class="btn btn2" href="#download">Get it on Google Play</a></div>
+<p style="font-size:15px">Free to start. No credit card required.</p>
+</div>
+<div class="ph tilt" role="img" aria-label="Wellora app showing the daily Wellness Score ring">
+<span class="t">Today</span>
+<svg width="170" height="170" viewBox="0 0 170 170" aria-hidden="true"><circle cx="85" cy="85" r="68" fill="none" stroke="#D1FAE5" stroke-width="14"></circle><circle cx="85" cy="85" r="68" fill="none" stroke="#10B981" stroke-width="14" stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="90" transform="rotate(-90 85 85)"></circle><text x="85" y="88" text-anchor="middle" font-size="40" font-weight="800" fill="#0B1F18" font-family="Plus Jakarta Sans,sans-serif">[ 00 ]</text><text x="85" y="112" text-anchor="middle" font-size="12" fill="#475569" font-family="Plus Jakarta Sans,sans-serif">Wellness Score</text></svg>
+<div class="row"><span>Wind-down</span><span>10 min</span></div>
+<div class="row"><span>Morning walk</span><span>20 min</span></div>
+<div class="row"><span>Hydrate</span><span>Next up</span></div>
+<div class="row"><span>Breathe</span><span>2 min</span></div>
+</div>
+</div></section>
+
+<section style="padding:32px 0"><div class="c" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+<span class="tag">4.8 App Store rating</span><span class="tag">Editor's Choice</span><span class="tag">Privacy-first by design</span>
+</div></section>
+
+<section class="s"><div class="c" style="text-align:center">
+<h2>Wellness shouldn't feel like another job.</h2>
+<p class="lead" style="margin:20px auto 0">Too many apps. Too many numbers. Too much noise. Wellora cuts through it with one place, one score, and one clear next step each day.</p>
+</div></section>
+
+<section class="s bg" id="features" style="padding-top:0"><div class="c">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">Features</span><h2>Everything for body and mind</h2></div>
+<div class="g3">
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></div><h3>Sleep Intelligence</h3><p>Understand your sleep patterns and wake up rested with smart wind-down routines and a gentle sunrise alarm.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 2 6 0 9-2-3-2-6 0-9zM4 10c4 0 7 2 8 6-4 0-7-2-8-6zM20 10c-4 0-7 2-8 6 4 0 7-2 8-6zM12 21v-5"></path></svg></div><h3>Guided Mindfulness</h3><p>Short meditations, breathing exercises, and calming soundscapes, from 2 minutes to 30.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5a1 1 0 1 0 .01 0M8 21l3-7-2-3 4-3 3 3 3 1M11 14l4 2 1 5"></path></svg></div><h3>Adaptive Movement</h3><p>Workouts and walking goals that adjust to your energy, schedule, and fitness level.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 9-5 14-13 14M5 19c3-5 6-8 10-10"></path></svg></div><h3>Mindful Nutrition</h3><p>Simple meal logging and balanced suggestions, with no calorie obsession and no guilt.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"></path></svg></div><h3>Daily Habits</h3><p>Hydration, medication, and routine reminders that nudge rather than nag.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg></div><h3>Your Wellness Score</h3><p>One clear score that shows how you're doing across body and mind, with insights that actually make sense.</p></div>
+</div></div></section>
+
+<section class="s" id="how" style="padding-top:0"><div class="c">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">How It Works</span><h2>Three simple steps</h2></div>
+<div class="g3">
+<div class="card"><div class="num">1</div><h3>Tell us about you</h3><p>Share your goals, lifestyle, and what "feeling good" means to you.</p></div>
+<div class="card"><div class="num">2</div><h3>Get your personal plan</h3><p>Wellora builds a daily rhythm of small, doable actions around your life.</p></div>
+<div class="card"><div class="num">3</div><h3>Grow with insights</h3><p>Watch trends emerge, celebrate progress, and let your plan evolve as you do.</p></div>
+</div></div></section>
+
+<section class="s bg" style="padding-top:0"><div class="c">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">Inside the app</span><h2>Calm, clear, and yours</h2></div>
+<div style="display:flex;gap:32px;justify-content:center;flex-wrap:wrap">
+<div class="ph" role="img" aria-label="Today screen: Wellness Score, daily plan, check-ins"><span class="t">Today</span>
+<svg width="120" height="120" viewBox="0 0 170 170" aria-hidden="true"><circle cx="85" cy="85" r="68" fill="none" stroke="#D1FAE5" stroke-width="16"></circle><circle cx="85" cy="85" r="68" fill="none" stroke="#10B981" stroke-width="16" stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="110" transform="rotate(-90 85 85)"></circle></svg>
+<div class="row"><span>Daily plan</span><span>4 steps</span></div><div class="row"><span>Check-in</span><span>Gentle</span></div><div class="row"><span>Wind-down</span><span>9:30 pm</span></div></div>
+<div class="ph" role="img" aria-label="Insights screen: weekly trends in sleep, mood and activity"><span class="t">Insights</span>
+<svg width="200" height="150" viewBox="0 0 200 150" aria-hidden="true"><g fill="#D1FAE5"><rect x="8" y="60" width="18" height="80" rx="6"></rect><rect x="40" y="40" width="18" height="100" rx="6"></rect><rect x="72" y="70" width="18" height="70" rx="6"></rect></g><g fill="#10B981"><rect x="104" y="30" width="18" height="110" rx="6"></rect><rect x="136" y="50" width="18" height="90" rx="6"></rect><rect x="168" y="20" width="18" height="120" rx="6"></rect></g></svg>
+<div class="row"><span>Sleep</span><span>Weekly</span></div><div class="row"><span>Mood</span><span>Weekly</span></div><div class="row"><span>Activity</span><span>Weekly</span></div></div>
+<div class="ph" role="img" aria-label="Calm screen: one-tap meditation and breathing library"><span class="t">Calm</span>
+<svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="70" fill="#ECFDF5"></circle><circle cx="75" cy="75" r="48" fill="#D1FAE5"></circle><circle cx="75" cy="75" r="26" fill="#10B981"></circle></svg>
+<div class="row"><span>Breathe</span><span>2 min</span></div><div class="row"><span>Meditate</span><span>2-30 min</span></div><div class="row"><span>Soundscapes</span><span>Play</span></div></div>
+</div></div></section>
+
+<section style="padding:0 0 112px"><div class="c" style="text-align:center">
+<p style="font-weight:700;color:#0B1F18;margin-bottom:20px">Syncs seamlessly with</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><span class="tag">Apple Health</span><span class="tag">Google Fit</span><span class="tag">Apple Watch</span><span class="tag">Wear OS</span><span class="tag">Fitbit</span><span class="tag">Oura</span></div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="c">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">Why Wellora</span><h2>Wellness, without the noise</h2></div>
+<div class="tw"><table>
+<thead><tr><th></th><th>Typical wellness apps</th><th class="y">Wellora</th></tr></thead>
+<tbody>
+<tr><td>One unified view</td><td>Multiple apps</td><td class="y">Everything in one place</td></tr>
+<tr><td>Personalization</td><td>Generic plans</td><td class="y">Adapts daily to you</td></tr>
+<tr><td>Tone</td><td>Pushy, guilt-driven</td><td class="y">Calm and encouraging</td></tr>
+<tr><td>Privacy</td><td>Data sold to advertisers</td><td class="y">Your data stays yours</td></tr>
+<tr style="border:0"><td style="border:0">Design</td><td style="border:0">Cluttered</td><td class="y" style="border:0">Clean and premium</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section class="s bg" style="padding-top:0"><div class="c">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">Testimonials</span><h2>What people are saying</h2></div>
+<div class="g3">
+<div class="card"><p style="color:#0B1F18;font-weight:500;font-size:19px">"Finally, a wellness app that feels calming instead of stressful."</p><p style="margin-top:16px;font-size:15px">[Name], [City]</p></div>
+<div class="card"><p style="color:#0B1F18;font-weight:500;font-size:19px">"My sleep has improved more in a month than in years of trying."</p><p style="margin-top:16px;font-size:15px">[Name], [City]</p></div>
+<div class="card"><p style="color:#0B1F18;font-weight:500;font-size:19px">"Beautiful, simple, and it actually works."</p><p style="margin-top:16px;font-size:15px">[Name], [City]</p></div>
+</div></div></section>
+
+<section class="s" id="pricing" style="padding-top:0"><div class="c">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">Pricing</span><h2>Start free. Upgrade when you're ready.</h2></div>
+<div class="g3" style="align-items:stretch">
+<div class="card pr"><h3 style="margin:0">Wellora Free</h3><div class="pp">$0 <span style="font-size:16px;font-weight:500;color:#475569">/ forever</span></div>
+<ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Daily Wellness Score</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Basic habit tracking</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>5 guided meditations</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Health app sync</li></ul></div>
+<div class="card pr hot"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Wellora Plus</h3><span class="eb" style="margin:0;background:#059669;color:#fff">Most Popular</span></div><div class="pp">$9.99 <span style="font-size:16px;font-weight:500;color:#475569">/ month</span></div><p style="font-size:15px">or $69.99 / year (save 40%)</p>
+<ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Everything in Free</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Personalized daily plans</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Full sleep, mindfulness, and workout library</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Advanced insights and trends</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Offline access</li></ul></div>
+<div class="card pr"><h3 style="margin:0">Wellora Family</h3><div class="pp">$14.99 <span style="font-size:16px;font-weight:500;color:#475569">/ month</span></div>
+<ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Everything in Plus</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Up to 5 members</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Shared goals and gentle accountability</li></ul></div>
+</div>
+<p style="text-align:center;margin-top:28px;font-weight:700;color:#0B1F18">7-day free trial on Plus. Cancel anytime.</p>
+</div></section>
+
+<section class="s bg" style="padding-top:0"><div class="c">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">Privacy &amp; Trust</span><h2>Your health is personal. We treat it that way.</h2></div>
+<div class="g3" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11h12v9H6zM8 11V8a4 4 0 0 1 8 0v3"></path></svg></div><p style="color:#0B1F18;font-weight:700">End-to-end encrypted sensitive data</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 .01 0M5.6 5.6l12.8 12.8"></path></svg></div><p style="color:#0B1F18;font-weight:700">Never sold, never shared with advertisers</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"></path></svg></div><p style="color:#0B1F18;font-weight:700">Export or delete your data anytime</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6zM8.5 12l2.5 2.5 4.5-5"></path></svg></div><p style="color:#0B1F18;font-weight:700">Built with guidance from health and wellness professionals</p></div>
+</div>
+<p style="text-align:center;margin-top:28px;font-size:15px">Wellora is a wellness tool and does not replace professional medical advice.</p>
+</div></section>
+
+<section class="s" id="faq" style="padding-top:0"><div class="c" style="max-width:800px">
+<div style="text-align:center;margin-bottom:48px"><span class="eb">FAQ</span><h2>Questions, answered</h2></div>
+<details><summary>Is Wellora free?</summary><p>Yes. The free plan includes core tracking and a starter library. Plus unlocks personalization and the full content library.</p></details>
+<details><summary>Which devices does Wellora support?</summary><p>iPhone (iOS 16+) and Android (10+), with Apple Watch and Wear OS companions.</p></details>
+<details><summary>Does it work with my wearable?</summary><p>Yes. Wellora syncs with Apple Health, Google Fit, Fitbit, Oura, and more.</p></details>
+<details><summary>Is my data private?</summary><p>Absolutely. Your data is encrypted and never sold. You control what's shared.</p></details>
+<details><summary>Can I cancel anytime?</summary><p>Yes, in a couple of taps from your account settings.</p></details>
+<details><summary>Is Wellora medical advice?</summary><p>No. Wellora supports healthy habits but is not a substitute for a doctor or healthcare professional.</p></details>
+</div></section>
+
+<section id="download" style="padding:0 0 112px"><div class="c"><div style="border-radius:32px;background:radial-gradient(ellipse at top,#D1FAE5 0%,#ECFDF5 60%,#fff 100%);border:1px solid #E2EEE8;padding:72px 32px;text-align:center">
+<h2>Your best days start here.</h2>
+<p class="lead" style="margin:16px auto 0">Join thousands building a calmer, healthier routine with Wellora.</p>
+<div class="cta" style="justify-content:center"><a class="btn" href="#download">Download on the App Store</a><a class="btn btn2" href="#download">Get it on Google Play</a></div>
+<p style="font-size:15px">Scan the QR code for a quick mobile download: [QR CODE]</p>
+</div></div></section>
+
+<footer class="ft"><div class="c">
+<div class="fg">
+<div><b style="font-size:22px;letter-spacing:-.02em">Wellora</b><p>Feel better, every day.</p></div>
+<div><b>Product</b><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#">What's New</a></div>
+<div><b>Company</b><a href="#">About</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Contact</a></div>
+<div><b>Support</b><a href="#">Help Center</a><a href="#">Community</a><a href="#faq">FAQ</a></div>
+<div><b>Legal</b><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+<div><b>Follow us</b><a href="#">Instagram</a><a href="#">X</a><a href="#">TikTok</a><a href="#">LinkedIn</a></div>
+</div>
+<p style="margin-top:40px;font-size:14px">© 2026 Wellora. All rights reserved.</p>
+</div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":6300}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
